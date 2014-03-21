@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package Vista;
+
+import java.awt.Dimension;
 
 /**
  *
@@ -17,6 +18,15 @@ public class FrmPrincipal extends javax.swing.JFrame {
      */
     public FrmPrincipal() {
         initComponents();
+        Dimension ScreenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+        this.setSize(ScreenSize);
+        this.setExtendedState(FrmPrincipal.MAXIMIZED_BOTH);
+        
+//        iF_Login Login = new iF_Login();
+//        PnlEscritorio.add(Login);
+//        Login.setLocation(this.getWidth() / 2 - Login.getWidth() / 2 - 20, this.getHeight() / 2 - Login.getHeight() / 2 - 80);
+//        Login.setVisible(true);
+        
     }
 
     /**
@@ -28,17 +38,41 @@ public class FrmPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        pnlEscritorio = new javax.swing.JDesktopPane();
+        barPrincipal = new javax.swing.JMenuBar();
+        jMenu3 = new javax.swing.JMenu();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("FORMULARIO PRINCIPAL");
+
+        pnlEscritorio.setBackground(new java.awt.Color(204, 204, 255));
+
+        javax.swing.GroupLayout pnlEscritorioLayout = new javax.swing.GroupLayout(pnlEscritorio);
+        pnlEscritorio.setLayout(pnlEscritorioLayout);
+        pnlEscritorioLayout.setHorizontalGroup(
+            pnlEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1023, Short.MAX_VALUE)
+        );
+        pnlEscritorioLayout.setVerticalGroup(
+            pnlEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 507, Short.MAX_VALUE)
+        );
+
+        jMenu3.setText("Buscar");
+        jMenu3.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
+        barPrincipal.add(jMenu3);
+
+        setJMenuBar(barPrincipal);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(pnlEscritorio)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(pnlEscritorio)
         );
 
         pack();
@@ -80,5 +114,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuBar barPrincipal;
+    private javax.swing.JMenu jMenu3;
+    public static javax.swing.JDesktopPane pnlEscritorio;
     // End of variables declaration//GEN-END:variables
 }
