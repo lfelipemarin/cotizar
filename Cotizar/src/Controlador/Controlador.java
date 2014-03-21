@@ -5,44 +5,49 @@
  */
 package Controlador;
 
-import Vista.IfLogin;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import Modelo.BaseDatos;
+import javax.swing.JFrame;
 
 /**
  *
  * @author FelipeWin
  */
-public class Controlador implements MouseListener {
+public class Controlador {
 
-    public Controlador() {
-        IfLogin login = new IfLogin();
-        login.getBtnLogin().addMouseListener(this);
+    private BaseDatos modelo;
+    private JFrame vista;
+
+    public Controlador(BaseDatos modelo, JFrame vista) {
+        this.modelo = modelo;
+        this.vista = vista;
     }
 
-    @Override
-    public void mouseClicked(MouseEvent e) {
-        System.out.print("me presionaron");
+    /**
+     * @return the modelo
+     */
+    public BaseDatos getModelo() {
+        return modelo;
     }
 
-    @Override
-    public void mousePressed(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    /**
+     * @param modelo the modelo to set
+     */
+    public void setModelo(BaseDatos modelo) {
+        this.modelo = modelo;
     }
 
-    @Override
-    public void mouseReleased(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    /**
+     * @return the vista
+     */
+    public JFrame getVista() {
+        return vista;
     }
 
-    @Override
-    public void mouseEntered(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    /**
+     * @param vista the vista to set
+     */
+    public void setVista(JFrame vista) {
+        this.vista = vista;
     }
 
 }

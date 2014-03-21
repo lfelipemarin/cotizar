@@ -22,10 +22,10 @@ public class FrmPrincipal extends javax.swing.JFrame {
         this.setSize(ScreenSize);
         this.setExtendedState(FrmPrincipal.MAXIMIZED_BOTH);
         
-//        iF_Login Login = new iF_Login();
-//        PnlEscritorio.add(Login);
-//        Login.setLocation(this.getWidth() / 2 - Login.getWidth() / 2 - 20, this.getHeight() / 2 - Login.getHeight() / 2 - 80);
-//        Login.setVisible(true);
+        IfLogin Login = new IfLogin();
+        pnlEscritorio.add(Login);
+        Login.setLocation(this.getWidth() / 2 - Login.getWidth() / 2 - 20, this.getHeight() / 2 - Login.getHeight() / 2 - 80);
+        Login.setVisible(true);
         
     }
 
