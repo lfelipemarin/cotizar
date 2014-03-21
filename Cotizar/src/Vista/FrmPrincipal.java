@@ -38,32 +38,29 @@ public class FrmPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jDesktopPane1 = new javax.swing.JDesktopPane();
+        pnlEscritorio = new javax.swing.JDesktopPane();
         barPrincipal = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("FORMULARIO PRINCIPAL");
 
-        jDesktopPane1.setBackground(new java.awt.Color(204, 204, 255));
+        pnlEscritorio.setBackground(new java.awt.Color(204, 204, 255));
 
-        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
-        jDesktopPane1.setLayout(jDesktopPane1Layout);
-        jDesktopPane1Layout.setHorizontalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout pnlEscritorioLayout = new javax.swing.GroupLayout(pnlEscritorio);
+        pnlEscritorio.setLayout(pnlEscritorioLayout);
+        pnlEscritorioLayout.setHorizontalGroup(
+            pnlEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 1023, Short.MAX_VALUE)
         );
-        jDesktopPane1Layout.setVerticalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 511, Short.MAX_VALUE)
+        pnlEscritorioLayout.setVerticalGroup(
+            pnlEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 507, Short.MAX_VALUE)
         );
 
-        jMenu1.setText("File");
-        barPrincipal.add(jMenu1);
-
-        jMenu2.setText("Edit");
-        barPrincipal.add(jMenu2);
+        jMenu3.setText("Buscar");
+        jMenu3.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
+        barPrincipal.add(jMenu3);
 
         setJMenuBar(barPrincipal);
 
@@ -71,11 +68,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1)
+            .addComponent(pnlEscritorio)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1)
+            .addComponent(pnlEscritorio)
         );
 
         pack();
@@ -118,8 +115,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar barPrincipal;
-    private javax.swing.JDesktopPane jDesktopPane1;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    public static javax.swing.JDesktopPane pnlEscritorio;
     // End of variables declaration//GEN-END:variables
 }
