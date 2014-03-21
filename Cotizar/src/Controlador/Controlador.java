@@ -3,17 +3,46 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package Controlador;
+
+import Vista.IfLogin;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 /**
  *
  * @author FelipeWin
  */
-public class Controlador {
-    
-    public Controlador(){
-        
+public class Controlador implements MouseListener {
+
+    public Controlador() {
+        IfLogin login = new IfLogin();
+        login.getBtnLogin().addMouseListener(this);
     }
-    
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        System.out.print("me presionaron");
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }
