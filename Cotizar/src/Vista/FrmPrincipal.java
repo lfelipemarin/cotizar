@@ -6,6 +6,8 @@
 package Vista;
 
 import java.awt.Dimension;
+import java.io.FileOutputStream;
+import java.util.Properties;
 
 /**
  *
@@ -46,7 +48,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jMenu3 = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
         menAgregarUsuario = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        menConfiConex = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("FORMULARIO PRINCIPAL");
@@ -104,19 +106,19 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Imagenes/BuscarLupa2.png"))); // NOI18N
         jMenu3.setText("Buscar");
-        jMenu3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jMenu3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jMenu3.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
         barPrincipal.add(jMenu3);
 
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Imagenes/Administrador2.png"))); // NOI18N
         jMenu1.setText("Administrador");
-        jMenu1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jMenu1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jMenu1.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
 
         menAgregarUsuario.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
         menAgregarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Imagenes/Asistencial1.png"))); // NOI18N
         menAgregarUsuario.setText("Agregar usuario al sistema");
-        menAgregarUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        menAgregarUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         menAgregarUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menAgregarUsuarioActionPerformed(evt);
@@ -124,16 +126,16 @@ public class FrmPrincipal extends javax.swing.JFrame {
         });
         jMenu1.add(menAgregarUsuario);
 
-        jMenuItem1.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
-        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Imagenes/Administrador1.png"))); // NOI18N
-        jMenuItem1.setText("Configurar la conexión");
-        jMenuItem1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        menConfiConex.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        menConfiConex.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Imagenes/Administrador1.png"))); // NOI18N
+        menConfiConex.setText("Configurar la conexión");
+        menConfiConex.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        menConfiConex.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                menConfiConexActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        jMenu1.add(menConfiConex);
 
         barPrincipal.add(jMenu1);
 
@@ -159,11 +161,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
         AgregarUsuario.setVisible(true);
     }//GEN-LAST:event_menAgregarUsuarioActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        DlConfigConexion configurarconexion;
-        configurarconexion = new DlConfigConexion(null, true);
-        configurarconexion.setVisible(true);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    private void menConfiConexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menConfiConexActionPerformed
+        DlConfigConexion configConex;
+        configConex = new DlConfigConexion(null, true);
+        configConex.setVisible(true);
+    }//GEN-LAST:event_menConfiConexActionPerformed
 
     /**
      * @param args the command line arguments
@@ -207,9 +209,23 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JLabel lblUsuarioLogueado;
     private javax.swing.JMenuItem menAgregarUsuario;
+    private javax.swing.JMenuItem menConfiConex;
     public static javax.swing.JDesktopPane pnlEscritorio;
     // End of variables declaration//GEN-END:variables
+
+    /**
+     * @return the menConfiConex
+     */
+    public javax.swing.JMenuItem getMenConfiConex() {
+        return menConfiConex;
+    }
+
+    /**
+     * @param menConfiConex the menConfiConex to set
+     */
+    public void setMenConfiConex(javax.swing.JMenuItem menConfiConex) {
+        this.menConfiConex = menConfiConex;
+    }
 }

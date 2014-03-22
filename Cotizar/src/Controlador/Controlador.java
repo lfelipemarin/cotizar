@@ -5,11 +5,12 @@
  */
 package Controlador;
 
-import Modelo.BaseDatos;
-import java.awt.Graphics;
-import java.awt.Image;
-import javax.swing.ImageIcon;
-import javax.swing.JDesktopPane;
+import Modelo.Modelo;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.util.Properties;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 
 /**
@@ -18,10 +19,10 @@ import javax.swing.JFrame;
  */
 public class Controlador {
 
-    private BaseDatos modelo;
+    private Modelo modelo;
     private JFrame vista;
 
-    public Controlador(BaseDatos modelo, JFrame vista) {
+    public Controlador(Modelo modelo, JFrame vista) {
         this.modelo = modelo;
         this.vista = vista;
     }
@@ -29,14 +30,14 @@ public class Controlador {
     /**
      * @return the modelo
      */
-    public BaseDatos getModelo() {
+    public Modelo getModelo() {
         return modelo;
     }
 
     /**
      * @param modelo the modelo to set
      */
-    public void setModelo(BaseDatos modelo) {
+    public void setModelo(Modelo modelo) {
         this.modelo = modelo;
     }
 
@@ -52,6 +53,91 @@ public class Controlador {
      */
     public void setVista(JFrame vista) {
         this.vista = vista;
+    }
+
+    /**
+     * @param conexion the conexion to set
+     */
+    public void setConexion(Connection conexion) {
+        modelo.setConexion(conexion);
+    }
+
+    /**
+     * @return the validar
+     */
+    public Validacion getValidar() {
+        return modelo.getValidar();
+    }
+
+    /**
+     * @param validar the validar to set
+     */
+    public void setValidar(Validacion validar) {
+        modelo.setValidar(validar);
+    }
+
+    /**
+     * @return the host
+     */
+    public String getUrl() {
+        return modelo.getUrl();
+    }
+
+    /**
+     * @param url the host to set
+     */
+    public void setUrl(String url) {
+        modelo.setUrl(url);
+    }
+
+    /**
+     * @return the usuario
+     */
+    public String getUsuario() {
+        return modelo.getUsuario();
+    }
+
+    /**
+     * @param usuario the usuario to set
+     */
+    public void setUsuario(String usuario) {
+        modelo.setUsuario(usuario);
+    }
+
+    /**
+     * @return the contraseña
+     */
+    public String getContraseña() {
+        return modelo.getContraseña();
+    }
+
+    /**
+     * @param contraseña the contraseña to set
+     */
+    public void setContraseña(String contraseña) {
+        modelo.setContraseña(contraseña);
+    }
+
+    /**
+     * @return the config
+     */
+    public Properties getConfig() {
+        return modelo.getConfig();
+    }
+
+    /**
+     * @param config the config to set
+     */
+    public void setConfig(Properties config) {
+        modelo.setConfig(config);
+    }
+
+    public void eventoConfig(final String url, final String usuario, final String contraseña) {
+        if (modelo.crearConexion() == false) {
+            modelo.configConexion(url, usuario, contraseña);
+        }
+//            modelo.crearConexion();
+
     }
 
 }
