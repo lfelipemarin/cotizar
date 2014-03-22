@@ -21,12 +21,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
         Dimension ScreenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
         this.setSize(ScreenSize);
         this.setExtendedState(FrmPrincipal.MAXIMIZED_BOTH);
-        
         IfLogin Login = new IfLogin();
         pnlEscritorio.add(Login);
         Login.setLocation(this.getWidth() / 2 - Login.getWidth() / 2 - 20, this.getHeight() / 2 - Login.getHeight() / 2 - 80);
         Login.setVisible(true);
-        
+
     }
 
     /**
@@ -39,28 +38,91 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         pnlEscritorio = new javax.swing.JDesktopPane();
+        jLabel1 = new javax.swing.JLabel();
+        lblUsuarioLogueado = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         barPrincipal = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
+        jMenu1 = new javax.swing.JMenu();
+        menAgregarUsuario = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("FORMULARIO PRINCIPAL");
 
         pnlEscritorio.setBackground(new java.awt.Color(204, 204, 255));
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Usuario logeuado:");
+
+        lblUsuarioLogueado.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
+        lblUsuarioLogueado.setForeground(new java.awt.Color(255, 255, 255));
+        lblUsuarioLogueado.setText("Usuario logeuado:");
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Hora de intreso:");
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Fecha de ingreso:");
+
         javax.swing.GroupLayout pnlEscritorioLayout = new javax.swing.GroupLayout(pnlEscritorio);
         pnlEscritorio.setLayout(pnlEscritorioLayout);
         pnlEscritorioLayout.setHorizontalGroup(
             pnlEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1023, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlEscritorioLayout.createSequentialGroup()
+                .addContainerGap(540, Short.MAX_VALUE)
+                .addGroup(pnlEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pnlEscritorioLayout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblUsuarioLogueado, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(171, 171, 171))
         );
         pnlEscritorioLayout.setVerticalGroup(
             pnlEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 507, Short.MAX_VALUE)
+            .addGroup(pnlEscritorioLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(pnlEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(lblUsuarioLogueado))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel3)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addContainerGap(393, Short.MAX_VALUE))
         );
+        pnlEscritorio.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        pnlEscritorio.setLayer(lblUsuarioLogueado, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        pnlEscritorio.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        pnlEscritorio.setLayer(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
+        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Imagenes/BuscarLupa2.png"))); // NOI18N
         jMenu3.setText("Buscar");
-        jMenu3.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
+        jMenu3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jMenu3.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
         barPrincipal.add(jMenu3);
+
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Imagenes/Administrador2.png"))); // NOI18N
+        jMenu1.setText("Administrador");
+        jMenu1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jMenu1.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+
+        menAgregarUsuario.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        menAgregarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Imagenes/Asistencial1.png"))); // NOI18N
+        menAgregarUsuario.setText("Agregar usuario al sistema");
+        menAgregarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menAgregarUsuarioActionPerformed(evt);
+            }
+        });
+        jMenu1.add(menAgregarUsuario);
+
+        barPrincipal.add(jMenu1);
 
         setJMenuBar(barPrincipal);
 
@@ -77,6 +139,12 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void menAgregarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menAgregarUsuarioActionPerformed
+        DlAgregarUsuario AgregarUsuario;
+        AgregarUsuario = new DlAgregarUsuario(null, true);
+        AgregarUsuario.setVisible(true);
+    }//GEN-LAST:event_menAgregarUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -115,7 +183,13 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar barPrincipal;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu3;
+    private javax.swing.JLabel lblUsuarioLogueado;
+    private javax.swing.JMenuItem menAgregarUsuario;
     public static javax.swing.JDesktopPane pnlEscritorio;
     // End of variables declaration//GEN-END:variables
 }

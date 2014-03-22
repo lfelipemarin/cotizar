@@ -6,6 +6,10 @@
 package Controlador;
 
 import Modelo.BaseDatos;
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
 
 /**
