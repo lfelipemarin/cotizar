@@ -42,6 +42,7 @@ public class DlAgregarUsuario extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+        jTextField1.setEditable(false);
         jTextField1.setBackground(new java.awt.Color(204, 204, 255));
         jTextField1.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
