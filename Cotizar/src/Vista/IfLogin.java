@@ -54,7 +54,7 @@ public class IfLogin extends javax.swing.JInternalFrame {
         btnAceptar.setText("Aceptar");
         btnAceptar.setBorderPainted(false);
         btnAceptar.setContentAreaFilled(false);
-        btnAceptar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAceptar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnAceptar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnAceptar.setIconTextGap(-4);
         btnAceptar.setMargin(new java.awt.Insets(0, 0, 0, 0));
@@ -68,7 +68,7 @@ public class IfLogin extends javax.swing.JInternalFrame {
         btnCancelar.setText("Cancelar");
         btnCancelar.setBorderPainted(false);
         btnCancelar.setContentAreaFilled(false);
-        btnCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnCancelar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnCancelar.setIconTextGap(-4);
         btnCancelar.setMargin(new java.awt.Insets(0, 0, 0, 0));
@@ -146,9 +146,9 @@ public class IfLogin extends javax.swing.JInternalFrame {
                             .addComponent(lblPass)
                             .addComponent(pssLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnCancelar)
-                            .addComponent(btnAceptar)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnAceptar, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnCancelar)))
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -185,14 +185,14 @@ public class IfLogin extends javax.swing.JInternalFrame {
      * @return the btnLogin
      */
     public javax.swing.JButton getBtnLogin() {
-        return btnAceptar;
+        return getBtnAceptar();
     }
 
     /**
      * @param btnLogin the btnLogin to set
      */
     public void setBtnLogin(javax.swing.JButton btnLogin) {
-        this.btnAceptar = btnLogin;
+        this.setBtnAceptar(btnLogin);
     }
 
     /**
@@ -249,5 +249,33 @@ public class IfLogin extends javax.swing.JInternalFrame {
      */
     public void setTxtUsuario(javax.swing.JTextField txtUsuario) {
         this.txtUsuario = txtUsuario;
+    }
+
+    /**
+     * @return the btnAceptar
+     */
+    public javax.swing.JButton getBtnAceptar() {
+        return btnAceptar;
+    }
+
+    /**
+     * @param btnAceptar the btnAceptar to set
+     */
+    public void setBtnAceptar(javax.swing.JButton btnAceptar) {
+        this.btnAceptar = btnAceptar;
+    }
+
+    /**
+     * @return the btnCancelar
+     */
+    public javax.swing.JButton getBtnCancelar() {
+        return btnCancelar;
+    }
+
+    /**
+     * @param btnCancelar the btnCancelar to set
+     */
+    public void setBtnCancelar(javax.swing.JButton btnCancelar) {
+        this.btnCancelar = btnCancelar;
     }
 }

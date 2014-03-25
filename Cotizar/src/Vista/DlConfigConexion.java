@@ -5,6 +5,7 @@
  */
 package Vista;
 
+import Controlador.Validacion;
 import Modelo.Modelo;
 
 /**
@@ -131,10 +132,14 @@ public class DlConfigConexion extends javax.swing.JDialog {
 
     private void btnConfigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfigActionPerformed
         Modelo mod = new Modelo();
+        Validacion val = new Validacion();
         if (mod.configConexion(this.txtUrl.getText(), this.txtUsuario.getText(),
                 this.TxtContraseña.getText()) == false) {
-            System.out.println("no se puede");
+            val.mensajeError("Los parametros de la base de datos no coincide.", "Error");
 
+        } else {
+            val.mensajeOk("Parametros guardados correctamente.", "Éxito");
+            this.dispose();
         }
     }//GEN-LAST:event_btnConfigActionPerformed
 
@@ -210,13 +215,6 @@ public class DlConfigConexion extends javax.swing.JDialog {
      */
     public javax.swing.JButton getBtnConfig() {
         return btnConfig;
-    }
-
-    /**
-     * @param btnConfig the btnConfig to set
-     */
-    public void setBtnConfig(javax.swing.JButton btnConfig) {
-        this.btnConfig = btnConfig;
     }
 
     /**

@@ -64,6 +64,7 @@ public class Modelo {
             config.setProperty("username", usuario);
             config.setProperty("password", contraseña);
             config.store(out, null);
+            out.close();
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Modelo.class.getName()).log(Level.SEVERE, null, ex);
             return false;
@@ -83,42 +84,23 @@ public class Modelo {
             Logger.getLogger(Modelo.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-//        try {
-//            config.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("Modelo/propiedadesBd.properties"));
-//        } catch (IOException ex) {
-//            Logger.getLogger(Modelo.class.getName()).log(Level.SEVERE, null, ex);
-//        }
         this.url = config.getProperty("url");
         this.usuario = config.getProperty("username");
         this.contraseña = config.getProperty("password");
         return this.crearConexion();
     }
 
-    public boolean guardarDatosBdArchivo(String prop1, String prop2) {
-        try (FileOutputStream out = new FileOutputStream("propiedadesBd.properties")) {
-            config.setProperty("country", "america");
-            config.store(out, null);
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(Modelo.class.getName()).log(Level.SEVERE, null, ex);
-            return false;
-        } catch (IOException ex) {
-            Logger.getLogger(Modelo.class.getName()).log(Level.SEVERE, null, ex);
-            return false;
-        }
-        return true;
-
-    }
-
     public boolean crearConexion() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             setConexion(DriverManager.getConnection(getUrl(), getUsuario(), getContraseña()));
-            System.out.print("conectado");
+            System.out.println("conectado");
         } catch (SQLException | ClassNotFoundException ex) {
             setValidar(new Validacion());
             getValidar().mensajeError("No se pudo connectar a la base de datos, tenga en cuenta lo siguiente:"
                     + "\n*Vefique la conexión de su ordenador a la red o el internet e intente ingresar de nuevo a la aplicación."
                     + "\n*Verifique que el servidor este encendido."
+                    + "\n*Ingrese al menu de administrador para configurar los parametros de conexión."
                     + "\n*Verifique que la aplicación Xampp este corriendo en el servidor. de no ser así, ejecutela e intente ingresar de nuevo a la aplicación"
                     + "\n\nDescripción del error: " + ex + ""
                     + "\n\nSI NO SE HA SOLUCIONADO EL PROBLEMA Y NO ENTIENDE EL ERROR, COMUNICARSE CON EL ADMINISTRADOR ", "ERROR");

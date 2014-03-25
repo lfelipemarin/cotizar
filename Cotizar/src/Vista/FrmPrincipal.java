@@ -6,14 +6,15 @@
 package Vista;
 
 import java.awt.Dimension;
-import java.io.FileOutputStream;
-import java.util.Properties;
 
 /**
  *
  * @author FelipeWin
  */
 public class FrmPrincipal extends javax.swing.JFrame {
+
+    private final IfLogin Login;
+    private DlConfigConexion configConex;
 
     /**
      * Creates new form FrmPrincipal
@@ -23,7 +24,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         Dimension ScreenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
         this.setSize(ScreenSize);
         this.setExtendedState(FrmPrincipal.MAXIMIZED_BOTH);
-        IfLogin Login = new IfLogin();
+        Login = new IfLogin();
         pnlEscritorio.add(Login);
         Login.setLocation(this.getWidth() / 2 - Login.getWidth() / 2 - 20, this.getHeight() / 2 - Login.getHeight() / 2 - 80);
         Login.setVisible(true);
@@ -162,9 +163,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_menAgregarUsuarioActionPerformed
 
     private void menConfiConexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menConfiConexActionPerformed
-        DlConfigConexion configConex;
         configConex = new DlConfigConexion(null, true);
-        configConex.setVisible(true);
+        getConfigConex().setVisible(true);
     }//GEN-LAST:event_menConfiConexActionPerformed
 
     /**
@@ -178,7 +178,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -196,6 +196,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new FrmPrincipal().setVisible(true);
             }
@@ -216,16 +217,16 @@ public class FrmPrincipal extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     /**
-     * @return the menConfiConex
+     * @return the Login
      */
-    public javax.swing.JMenuItem getMenConfiConex() {
-        return menConfiConex;
+    public IfLogin getLogin() {
+        return Login;
     }
 
     /**
-     * @param menConfiConex the menConfiConex to set
+     * @return the configConex
      */
-    public void setMenConfiConex(javax.swing.JMenuItem menConfiConex) {
-        this.menConfiConex = menConfiConex;
+    public DlConfigConexion getConfigConex() {
+        return configConex;
     }
 }

@@ -6,12 +6,18 @@
 package Controlador;
 
 import Modelo.Modelo;
+import Vista.FrmPrincipal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Properties;
-import javax.swing.JDialog;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -20,9 +26,11 @@ import javax.swing.JFrame;
 public class Controlador {
 
     private Modelo modelo;
-    private JFrame vista;
+    private FrmPrincipal vista;
+    private final Validacion validar = new Validacion();
+    BListener accion = new BListener();
 
-    public Controlador(Modelo modelo, JFrame vista) {
+    public Controlador(Modelo modelo, FrmPrincipal vista) {
         this.modelo = modelo;
         this.vista = vista;
     }
@@ -51,7 +59,7 @@ public class Controlador {
     /**
      * @param vista the vista to set
      */
-    public void setVista(JFrame vista) {
+    public void setVista(FrmPrincipal vista) {
         this.vista = vista;
     }
 
@@ -132,12 +140,56 @@ public class Controlador {
         modelo.setConfig(config);
     }
 
-    public void eventoConfig(final String url, final String usuario, final String contraseña) {
-        if (modelo.crearConexion() == false) {
-            modelo.configConexion(url, usuario, contraseña);
-        }
-//            modelo.crearConexion();
+    public void accionLogin() {
+        JButton aceptar = vista.getLogin().getBtnAceptar();
+        JButton cancelar = vista.getLogin().getBtnCancelar();
+        aceptar.addActionListener(accion);
+        cancelar.addActionListener(accion);
+    }
 
+    private class BListener implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            JButton aceptar = vista.getLogin().getBtnAceptar();
+            JButton cancelar = vista.getLogin().getBtnCancelar();
+            if (e.getSource() == aceptar) {
+                try {
+                    System.out.println("aceptar");
+//                System.out.println("Bienvenido " + vista.getLogin().getTxtUsuario().getText());
+                    ResultSet usuario = modelo.ejecutarSQLSelect("SELECT 1 FROM login WHERE usuario = '" + 
+                            vista.getLogin().getTxtUsuario().getText() + "'AND clave = '" + 
+                            vista.getLogin().getPssLogin().getText()+"'");
+                    if (usuario.next()) {
+                        System.out.println("Bienvenido " + vista.getLogin().getTxtUsuario().getText());
+                    }else{
+                        validar.mensajeAlerta("Nombre de usuario ó contraseña invalidos.", "Alerta");
+                    }
+                } catch (SQLException ex) {
+                    Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+                    validar.mensajeError("Mensaje " + ex, "Error");
+
+                }
+            } else if (e.getSource() == cancelar) {
+                int seleccion = JOptionPane.showOptionDialog(
+                        vista, //Componente padre
+                        "Desea salir del programa",
+                        "Seleccione una opción", //titulo
+                        JOptionPane.YES_NO_CANCEL_OPTION,
+                        JOptionPane.QUESTION_MESSAGE,
+                        null, //null para icono por defecto
+                        new Object[]{"Si", "No"}, //null para yes, No y Cancel
+                        "Si");
+                if (seleccion != -1) {
+                    if ((seleccion + 1) == 1) {
+                        //Si
+                        System.exit(0);
+                    } else {
+                        //No
+                    }
+                }
+            }
+        }
     }
 
 }

@@ -5,7 +5,6 @@
  */
 package Controlador;
 
-import java.sql.Date;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JCheckBox;
