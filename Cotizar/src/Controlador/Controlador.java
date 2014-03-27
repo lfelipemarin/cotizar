@@ -10,13 +10,17 @@ import Vista.FrmPrincipal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
+//import java.sql.Date;
+import java.util.Date;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
-import javax.swing.JFrame;
+import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
 /**
@@ -52,7 +56,7 @@ public class Controlador {
     /**
      * @return the vista
      */
-    public JFrame getVista() {
+    public FrmPrincipal getVista() {
         return vista;
     }
 
@@ -147,22 +151,31 @@ public class Controlador {
         cancelar.addActionListener(accion);
     }
 
+    public void accionAgregarUsuario() {
+        JMenuItem mostrarAgregarUsuario = vista.getMenAgregarUsuario();
+        mostrarAgregarUsuario.addActionListener(accion);
+        JButton agregar = vista.getAgregarUsuario().getBtnAgregar();
+        agregar.addActionListener(accion);
+    }
+
     private class BListener implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
             JButton aceptar = vista.getLogin().getBtnAceptar();
             JButton cancelar = vista.getLogin().getBtnCancelar();
+            JMenuItem mostrarAgregarUsuario = vista.getMenAgregarUsuario();
+            JButton agregar = vista.getAgregarUsuario().getBtnAgregar();
             if (e.getSource() == aceptar) {
                 try {
                     System.out.println("aceptar");
 //                System.out.println("Bienvenido " + vista.getLogin().getTxtUsuario().getText());
-                    ResultSet usuario = modelo.ejecutarSQLSelect("SELECT 1 FROM login WHERE usuario = '" + 
-                            vista.getLogin().getTxtUsuario().getText() + "'AND clave = '" + 
-                            vista.getLogin().getPssLogin().getText()+"'");
+                    ResultSet usuario = modelo.ejecutarSQLSelect("SELECT 1 FROM login WHERE usuario = '"
+                            + vista.getLogin().getTxtUsuario().getText() + "'AND clave = '"
+                            + vista.getLogin().getPssLogin().getText() + "'");
                     if (usuario.next()) {
                         System.out.println("Bienvenido " + vista.getLogin().getTxtUsuario().getText());
-                    }else{
+                    } else {
                         validar.mensajeAlerta("Nombre de usuario ó contraseña invalidos.", "Alerta");
                     }
                 } catch (SQLException ex) {
@@ -188,6 +201,28 @@ public class Controlador {
                         //No
                     }
                 }
+            } else if (e.getSource() == mostrarAgregarUsuario) {
+                vista.getAgregarUsuario().setVisible(true);
+            } else if (e.getSource() == agregar) {
+                try {
+                    String query = "INSERT INTO login (nombre_completo, usuario, clave, tipo_usuario, fecha_ingreso) VALUES (?, ?, ?, ?, ?)";
+                    
+                    // create the mysql insert preparedstatement
+                    PreparedStatement preparedStmt = modelo.getConexion().prepareStatement(query);
+                    preparedStmt.setString(1, vista.getAgregarUsuario().getTxtNombreCompleto().getText());
+                    preparedStmt.setString(2, vista.getAgregarUsuario().getTxtNuevoUsuario().getText());
+                    preparedStmt.setString(3, vista.getAgregarUsuario().getTxtContraseñaUsuario().getText());
+                    preparedStmt.setString(4, vista.getAgregarUsuario().getCmbTipoUsuario().getSelectedItem().toString());
+                    preparedStmt.setTimestamp(5, new Timestamp(System.currentTimeMillis()));
+                    
+                    // execute the preparedstatement
+                    preparedStmt.execute();
+                    
+                    modelo.getConexion().close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
             }
         }
     }

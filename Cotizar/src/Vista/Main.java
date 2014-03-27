@@ -19,7 +19,7 @@ public class Main {
     public static void main(String args[]) {
 
         try {
-            UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
+            UIManager.setLookAndFeel("com.jtattoo.plaf.aluminium.AluminiumLookAndFeel");
         } catch (ClassNotFoundException | IllegalAccessException | InstantiationException | UnsupportedLookAndFeelException e) {
             System.out.println("fallo");
         }
@@ -30,8 +30,8 @@ public class Main {
         controlador.getVista().setVisible(true);
         controlador.getModelo().crearConexion();
         controlador.accionLogin();
+        controlador.accionAgregarUsuario();
 
- 
     }
 
 }

@@ -15,6 +15,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
     private final IfLogin Login;
     private DlConfigConexion configConex;
+    private DlAgregarUsuario AgregarUsuario;
 
     /**
      * Creates new form FrmPrincipal
@@ -28,6 +29,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         pnlEscritorio.add(Login);
         Login.setLocation(this.getWidth() / 2 - Login.getWidth() / 2 - 20, this.getHeight() / 2 - Login.getHeight() / 2 - 80);
         Login.setVisible(true);
+        AgregarUsuario = new DlAgregarUsuario(null, true);
 
     }
 
@@ -120,11 +122,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
         menAgregarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Imagenes/Asistencial1.png"))); // NOI18N
         menAgregarUsuario.setText("Agregar usuario al sistema");
         menAgregarUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        menAgregarUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menAgregarUsuarioActionPerformed(evt);
-            }
-        });
         jMenu1.add(menAgregarUsuario);
 
         menConfiConex.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
@@ -155,12 +152,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void menAgregarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menAgregarUsuarioActionPerformed
-        DlAgregarUsuario AgregarUsuario;
-        AgregarUsuario = new DlAgregarUsuario(null, true);
-        AgregarUsuario.setVisible(true);
-    }//GEN-LAST:event_menAgregarUsuarioActionPerformed
 
     private void menConfiConexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menConfiConexActionPerformed
         configConex = new DlConfigConexion(null, true);
@@ -228,5 +219,26 @@ public class FrmPrincipal extends javax.swing.JFrame {
      */
     public DlConfigConexion getConfigConex() {
         return configConex;
+    }
+
+    /**
+     * @return the menAgregarUsuario
+     */
+    public javax.swing.JMenuItem getMenAgregarUsuario() {
+        return menAgregarUsuario;
+    }
+
+    /**
+     * @return the menConfiConex
+     */
+    public javax.swing.JMenuItem getMenConfiConex() {
+        return menConfiConex;
+    }
+
+    /**
+     * @return the AgregarUsuario
+     */
+    public DlAgregarUsuario getAgregarUsuario() {
+        return AgregarUsuario;
     }
 }

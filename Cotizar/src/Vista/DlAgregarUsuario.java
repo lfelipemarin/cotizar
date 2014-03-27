@@ -38,7 +38,7 @@ public class DlAgregarUsuario extends javax.swing.JDialog {
         TxtNombreCompleto = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         CmbTipoUsuario = new javax.swing.JComboBox();
-        jButton1 = new javax.swing.JButton();
+        btnAgregar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -65,19 +65,19 @@ public class DlAgregarUsuario extends javax.swing.JDialog {
 
         CmbTipoUsuario.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione", "Secretaria", "Aux Enfermeria", "Profesionales", "Administrador" }));
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Imagenes/Agregar1.png"))); // NOI18N
-        jButton1.setText("Agregar");
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton1.setIconTextGap(-4);
-        jButton1.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        jButton1.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Imagenes/Agregar1.png"))); // NOI18N
-        jButton1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Imagenes/Agregar2.png"))); // NOI18N
-        jButton1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnAgregar.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
+        btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Imagenes/Agregar1.png"))); // NOI18N
+        btnAgregar.setText("Agregar");
+        btnAgregar.setBorderPainted(false);
+        btnAgregar.setContentAreaFilled(false);
+        btnAgregar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnAgregar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnAgregar.setIconTextGap(-4);
+        btnAgregar.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        btnAgregar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Imagenes/Agregar1.png"))); // NOI18N
+        btnAgregar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Imagenes/Agregar2.png"))); // NOI18N
+        btnAgregar.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnAgregar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -101,7 +101,7 @@ public class DlAgregarUsuario extends javax.swing.JDialog {
                             .addComponent(CmbTipoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton1)))
+                        .addComponent(btnAgregar)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -125,7 +125,7 @@ public class DlAgregarUsuario extends javax.swing.JDialog {
                     .addComponent(jLabel3)
                     .addComponent(CmbTipoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addComponent(btnAgregar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -179,11 +179,53 @@ public class DlAgregarUsuario extends javax.swing.JDialog {
     private javax.swing.JTextField TxtContraseñaUsuario;
     private javax.swing.JTextField TxtNombreCompleto;
     private javax.swing.JTextField TxtNuevoUsuario;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnAgregar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
+
+    /**
+     * @return the btnAgregar
+     */
+    public javax.swing.JButton getBtnAgregar() {
+        return btnAgregar;
+    }
+
+    /**
+     * @param btnAgregar the btnAgregar to set
+     */
+    public void setBtnAgregar(javax.swing.JButton btnAgregar) {
+        this.btnAgregar = btnAgregar;
+    }
+
+    /**
+     * @return the CmbTipoUsuario
+     */
+    public javax.swing.JComboBox getCmbTipoUsuario() {
+        return CmbTipoUsuario;
+    }
+
+    /**
+     * @return the TxtContraseñaUsuario
+     */
+    public javax.swing.JTextField getTxtContraseñaUsuario() {
+        return TxtContraseñaUsuario;
+    }
+
+    /**
+     * @return the TxtNombreCompleto
+     */
+    public javax.swing.JTextField getTxtNombreCompleto() {
+        return TxtNombreCompleto;
+    }
+
+    /**
+     * @return the TxtNuevoUsuario
+     */
+    public javax.swing.JTextField getTxtNuevoUsuario() {
+        return TxtNuevoUsuario;
+    }
 }
