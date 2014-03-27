@@ -48,7 +48,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         barPrincipal = new javax.swing.JMenuBar();
-        jMenu3 = new javax.swing.JMenu();
+        menFormularios = new javax.swing.JMenu();
+        itmDatosReferencia = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         menAgregarUsuario = new javax.swing.JMenuItem();
         menConfiConex = new javax.swing.JMenuItem();
@@ -107,11 +108,20 @@ public class FrmPrincipal extends javax.swing.JFrame {
         pnlEscritorio.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
         pnlEscritorio.setLayer(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Imagenes/BuscarLupa2.png"))); // NOI18N
-        jMenu3.setText("Buscar");
-        jMenu3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jMenu3.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
-        barPrincipal.add(jMenu3);
+        menFormularios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Imagenes/CruzPuntos1.png"))); // NOI18N
+        menFormularios.setText("Formularios");
+        menFormularios.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        menFormularios.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+
+        itmDatosReferencia.setText("Datos de Referencia");
+        itmDatosReferencia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmDatosReferenciaActionPerformed(evt);
+            }
+        });
+        menFormularios.add(itmDatosReferencia);
+
+        barPrincipal.add(menFormularios);
 
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Imagenes/Administrador2.png"))); // NOI18N
         jMenu1.setText("Administrador");
@@ -158,6 +168,13 @@ public class FrmPrincipal extends javax.swing.JFrame {
         getConfigConex().setVisible(true);
     }//GEN-LAST:event_menConfiConexActionPerformed
 
+    private void itmDatosReferenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmDatosReferenciaActionPerformed
+        IfDatosReferencia DatosReferencia = new IfDatosReferencia();
+        pnlEscritorio.add(DatosReferencia);
+        DatosReferencia.setLocation(this.getWidth() / 2 - DatosReferencia.getWidth() / 2 - 20, this.getHeight() / 2 - DatosReferencia.getHeight() / 2 - 20);
+        DatosReferencia.setVisible(true);
+    }//GEN-LAST:event_itmDatosReferenciaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -196,14 +213,15 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar barPrincipal;
+    private javax.swing.JMenuItem itmDatosReferencia;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JLabel lblUsuarioLogueado;
     private javax.swing.JMenuItem menAgregarUsuario;
     private javax.swing.JMenuItem menConfiConex;
+    private javax.swing.JMenu menFormularios;
     public static javax.swing.JDesktopPane pnlEscritorio;
     // End of variables declaration//GEN-END:variables
 
