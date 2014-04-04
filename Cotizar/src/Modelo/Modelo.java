@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.BorderFactory;
 import javax.swing.JTable;
 import javax.swing.RowSorter;
 import javax.swing.table.DefaultTableModel;
@@ -150,17 +151,16 @@ public class Modelo {
         }
     }
 
-    public void ResultSetATabla(ResultSet rs, JTable tabla) {
+     public void ResultSetATabla(ResultSet rs, ArrayList cabecera, JTable tabla) {
         try {
             ResultSetMetaData md = rs.getMetaData();
             DefaultTableModel dm = new DefaultTableModel();
             int columnas = md.getColumnCount();
-            String nomC[] = new String[columnas];
-            for (int i = 0; i < columnas; i++) {
-                nomC[i] = md.getColumnName(i + 1);
-                dm.addColumn(nomC[i]);
+            for (int i = 0; i < cabecera.size(); i++) {
+                dm.addColumn(cabecera.get(i).toString());
             }
             Object row[] = new Object[columnas];
+           
             while (rs.next()) {
                 for (int i = 0; i < columnas; i++) {
                     row[i] = rs.getString(i + 1);
@@ -170,9 +170,9 @@ public class Modelo {
             RowSorter<TableModel> sorter = new TableRowSorter<TableModel>(dm);
             tabla.setModel(dm);
             tabla.setRowSorter(sorter);
+            tabla.setBorder(BorderFactory.createRaisedBevelBorder());
         } catch (SQLException ex) {
             Logger.getLogger(Modelo.class.getName()).log(Level.SEVERE, null, ex);
-            getValidar().mensajeError("Error: " + ex, "Error");
         }
     }
 
