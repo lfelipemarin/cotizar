@@ -22,7 +22,7 @@ import javax.swing.JTable;
  */
 public class Dl_Agregar_Entidad extends javax.swing.JDialog {
 
-     Modelo con = new Modelo();
+    Modelo con = new Modelo();
     Validacion validar;
 
     /**
@@ -53,13 +53,16 @@ public class Dl_Agregar_Entidad extends javax.swing.JDialog {
         }
 
         ArrayList cabecera = new ArrayList();
-        
+
         String Nombre = "NOMBRE";
-      
+        String cod = "CODIGO";
+        String bool = "BOOL";
 
         cabecera.add(Nombre);
+        cabecera.add(cod);
+        cabecera.add(bool);
 
-        final ResultSet datos = con.ejecutarSQLSelect("SELECT NombreEntidad, CodEntidad FROM entidades_promotoras_salud ORDER BY NombreEntidad ASC ");
+        final ResultSet datos = con.ejecutarSQLSelect("SELECT NombreEntidad, CodEntidad, bool FROM entidades_promotoras_salud ORDER BY NombreEntidad ASC ");
         con.ResultSetATabla(datos, cabecera, this.TblEntidadesAgregadas);
         this.TblEntidadesAgregadas.addMouseListener(new MouseAdapter() {
             @Override

@@ -205,7 +205,7 @@ public class Controlador {
             } else if (e.getSource() == agregar) {
                 try {
                     String query = "INSERT INTO login (nombre_completo, usuario, clave, tipo_usuario, fecha_ingreso) VALUES (?, ?, ?, ?, ?)";
-                    
+
                     // create the mysql insert preparedstatement
                     PreparedStatement preparedStmt = modelo.getConexion().prepareStatement(query);
                     preparedStmt.setString(1, vista.getAgregarUsuario().getTxtNombreCompleto().getText());
@@ -213,10 +213,10 @@ public class Controlador {
                     preparedStmt.setString(3, vista.getAgregarUsuario().getTxtContraseñaUsuario().getText());
                     preparedStmt.setString(4, vista.getAgregarUsuario().getCmbTipoUsuario().getSelectedItem().toString());
                     preparedStmt.setTimestamp(5, new Timestamp(System.currentTimeMillis()));
-                    
+
                     // execute the preparedstatement
                     preparedStmt.execute();
-                    
+
                     modelo.getConexion().close();
                 } catch (SQLException ex) {
                     Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
@@ -225,5 +225,4 @@ public class Controlador {
             }
         }
     }
-
 }

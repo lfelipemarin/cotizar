@@ -151,28 +151,50 @@ public class Modelo {
         }
     }
 
-     public void ResultSetATabla(ResultSet rs, ArrayList cabecera, JTable tabla) {
+    public void ResultSetATabla(ResultSet rs, ArrayList cabecera, JTable tabla) {
         try {
             ResultSetMetaData md = rs.getMetaData();
-            DefaultTableModel dm = new DefaultTableModel();
+            DefaultTableModel dm = new DefaultTableModel() {
+                @Override
+                public Class getColumnClass(int c) {
+                    return getValueAt(0, c).getClass();
+                }
+            };
             int columnas = md.getColumnCount();
             for (int i = 0; i < cabecera.size(); i++) {
                 dm.addColumn(cabecera.get(i).toString());
             }
             Object row[] = new Object[columnas];
-           
+            String datoS;
             while (rs.next()) {
                 for (int i = 0; i < columnas; i++) {
-                    row[i] = rs.getString(i + 1);
+                    datoS = rs.getString(i + 1);
+                    if (!datoS.equals("true") && !datoS.equals("false")) {
+                        row[i] = datoS;
+                    } else {
+                        row[i] = convertirStringABool(datoS);
+                    }
+
                 }
                 dm.addRow(row);
             }
+            dm.getColumnClass(0);
+            dm.getColumnClass(1);
+            dm.getColumnClass(2);
             RowSorter<TableModel> sorter = new TableRowSorter<TableModel>(dm);
             tabla.setModel(dm);
             tabla.setRowSorter(sorter);
             tabla.setBorder(BorderFactory.createRaisedBevelBorder());
         } catch (SQLException ex) {
             Logger.getLogger(Modelo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    private boolean convertirStringABool(String s) {
+        if (s.equals("true")) {
+            return true;
+        } else {
+            return false;
         }
     }
 
